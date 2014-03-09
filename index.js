@@ -23,7 +23,10 @@ function main(code) {
     function embedVerbatim(node) {
         var embed = helper.getCodeFromRange(node.range);
         if (embed) {
-            node["x-verbatim-property"] = embed
+            node["x-verbatim-property"] = {
+                content : embed,
+                precedence : escodegen.Precedence.Primary
+            }
         }
     }
 
